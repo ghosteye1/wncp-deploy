@@ -22,10 +22,14 @@ pipeline {
         }
         stage('Applying all yaml to GKE') {
             steps{
+                script {
+                    projectfolder = projectfolder + '/'
+                }
+
                 echo "${projectfolder}"
                 sh "ls wncp/"
-                projectfolder = projectfolder + '/'
                 step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+
             }
         }
 
