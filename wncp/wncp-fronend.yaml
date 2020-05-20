@@ -1,17 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "9"
-  creationTimestamp: "2020-05-03T20:17:15Z"
-  generation: 9
   labels:
     app: wncp-fronend
   name: wncp-fronend
-  namespace: wncp
-  resourceVersion: "4208175"
-  selfLink: /apis/apps/v1/namespaces/wncp/deployments/wncp-fronend
-  uid: 14b58c65-8d7b-11ea-88ce-42010a8001f5
+  namespace: wncp-test-1
 spec:
   minReadySeconds: 60
   progressDeadlineSeconds: 600
@@ -43,22 +36,3 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 3
-  conditions:
-  - lastTransitionTime: "2020-05-03T20:17:18Z"
-    lastUpdateTime: "2020-05-03T20:17:18Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2020-05-03T20:17:15Z"
-    lastUpdateTime: "2020-05-13T05:12:47Z"
-    message: ReplicaSet "wncp-fronend-68dd76cdfb" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 9
-  readyReplicas: 3
-  replicas: 3
-  updatedReplicas: 3
