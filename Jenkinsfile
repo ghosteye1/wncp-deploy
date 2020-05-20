@@ -22,8 +22,9 @@ pipeline {
         }
         stage('Applying all yaml to GKE') {
             steps{
-                sh "ls k8s/"
                 echo "${projectfolder}"
+                sh "ls wncp/"
+                
                 //step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'k8s/', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
             }
         }
