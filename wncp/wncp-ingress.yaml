@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/backends: '{"k8s-be-32257--beaf4313ddcc5de1":"HEALTHY","k8s-be-32625--beaf4313ddcc5de1":"HEALTHY"}'
+    ingress.kubernetes.io/forwarding-rule: k8s-fw-wncp-wncp-ingress--beaf4313ddcc5de1
+    ingress.kubernetes.io/target-proxy: k8s-tp-wncp-wncp-ingress--beaf4313ddcc5de1
+    ingress.kubernetes.io/url-map: k8s-um-wncp-wncp-ingress--beaf4313ddcc5de1
+  creationTimestamp: "2020-05-03T20:18:32Z"
+  generation: 2
+  name: wncp-ingress
+  namespace: wncp
+  resourceVersion: "1899616"
+  selfLink: /apis/extensions/v1beta1/namespaces/wncp/ingresses/wncp-ingress
+  uid: 42a008f4-8d7b-11ea-88ce-42010a8001f5
+spec:
+  backend:
+    serviceName: wncp-fronend-service
+    servicePort: 8080
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: wncp-backend-service
+          servicePort: 8080
+        path: /cloud-portal-services/*
+  - {}
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.201.79.174

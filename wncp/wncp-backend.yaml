@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "3"
+  creationTimestamp: "2020-05-03T20:05:23Z"
+  generation: 3
+  labels:
+    app: wncp-backend
+  name: wncp-backend
+  namespace: wncp
+  resourceVersion: "1819601"
+  selfLink: /apis/apps/v1/namespaces/wncp/deployments/wncp-backend
+  uid: 6c6b759b-8d79-11ea-88ce-42010a8001f5
+spec:
+  minReadySeconds: 120
+  progressDeadlineSeconds: 600
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: wncp-backend
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: wncp-backend
+    spec:
+      containers:
+      - image: gcr.io/wn-cloud-275704/cloud-portal-service@sha256:d44480f23dc411a38b65c95e27508a3101c743f2392b2b98455cde237433e730
+        imagePullPolicy: IfNotPresent
+        name: cloud-portal-service-sha256-1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 3
+  conditions:
+  - lastTransitionTime: "2020-05-03T20:05:26Z"
+    lastUpdateTime: "2020-05-03T20:05:26Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2020-05-03T20:05:23Z"
+    lastUpdateTime: "2020-05-06T05:24:41Z"
+    message: ReplicaSet "wncp-backend-9568c4dc7" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 3
+  readyReplicas: 3
+  replicas: 3
+  updatedReplicas: 3
