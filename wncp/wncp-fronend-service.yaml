@@ -6,7 +6,7 @@ metadata:
   name: wncp-fronend-service
   namespace: wncp-test-1
 spec:
-  clusterIP: 10.4.30.4
+  clusterIP: 10.0.0.1
   externalTrafficPolicy: Cluster
   ports:
   - nodePort: 32625
