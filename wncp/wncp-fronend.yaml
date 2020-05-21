@@ -4,7 +4,7 @@ metadata:
   labels:
     app: wncp-fronend
   name: wncp-fronend
-  namespace: wncp-test-1
+  namespace: wncp-test-11
 spec:
   minReadySeconds: 60
   progressDeadlineSeconds: 600

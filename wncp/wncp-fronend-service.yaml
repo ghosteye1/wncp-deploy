@@ -4,7 +4,7 @@ metadata:
   labels:
     app: wncp-fronend
   name: wncp-fronend-service
-  namespace: wncp-test-1
+  namespace: wncp-test-11
 spec:
   clusterIP: 10.0.0.1
   externalTrafficPolicy: Cluster

@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: wncp-ingress
-  namespace: wncp-test-1
+  namespace: wncp-test-11
 spec:
   backend:
     serviceName: wncp-fronend-service
