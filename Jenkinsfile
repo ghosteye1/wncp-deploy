@@ -23,10 +23,10 @@ pipeline {
                     projectfolder = projectfolder + '/'
                 }
 
-                echo "${projectfolder} ${projectid} ${clsuterid} ${location}"
+                echo "${projectfolder} ${projectid} ${clusterid} ${location}"
                 sh "ls wncp/"
                 //step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
-                step([$class: 'KubernetesEngineBuilder', projectId: projectid, clusterName: clsuterid, location: location, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+                step([$class: 'KubernetesEngineBuilder', projectId: projectid, clusterName: clusterid, location: location, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 
             }
         }
