@@ -8,8 +8,8 @@ pipeline {
 	    }
     }
     environment {
-        PROJECT_ID = 'wn-cloud-275704'
-		CLUSTER_NAME = 'wn-cloud-portal-test'
+        // PROJECT_ID = 'wn-cloud-275704'
+		//CLUSTER_NAME = 'wn-cloud-portal-test'
 		LOCATION = 'us-central1-c'
 		CREDENTIALS_ID = 'wncp-k8s-service-accnt'
     }
@@ -26,8 +26,9 @@ pipeline {
                     projectfolder = projectfolder + '/'
                 }
 
-                echo "${projectfolder}"
+                echo "${projectfolder} ${projectid} ${clsuterid}"
                 sh "ls wncp/"
+                //step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
                 step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 
             }
