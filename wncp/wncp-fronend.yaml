@@ -24,7 +24,7 @@ spec:
         app: wncp-fronend
     spec:
       containers:
-      - image: gcr.io/wn-cloud-275704/cloud-portal-frontend:2.7
+      - image: sameerat8/cloud-portal-frontend:1.0 # gcr.io/wn-cloud-275704/cloud-portal-frontend:2.7
         # imagePullPolicy: IfNotPresent
         name: cloud-portal-frontend-sha256-1
       imagePullSecrets:
