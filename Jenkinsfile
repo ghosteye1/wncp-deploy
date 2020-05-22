@@ -30,7 +30,7 @@ pipeline {
                 
                 sh "ls ${projectfolder}/"
                 //step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
-                step([$class: 'KubernetesEngineBuilder', projectId: projectid, clusterName: clusterid, location: location, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+                step([$class: 'KubernetesEngineBuilder', projectId: projectid, clusterName: clusterid, location: location, manifestPattern: nameSpaceFolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 
             }
         }
