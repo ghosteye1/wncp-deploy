@@ -27,6 +27,8 @@ spec:
       - image: gcr.io/wn-cloud-275704/cloud-portal-service:2.6
         # imagePullPolicy: IfNotPresent
         name: cloud-portal-service-sha256-1
+      imagePullSecrets:
+      - name: gcr-json-key
         # resources: {}
         # terminationMessagePath: /dev/termination-log
         # terminationMessagePolicy: File
