@@ -24,11 +24,11 @@ spec:
         app: wncp-backend
     spec:
       containers:
-      - image: gcr.io/wn-cloud-275704/cloud-portal-service:2.6
+      - image: sameerat8/wildfly-cloud-portal-service:1.0 # gcr.io/wn-cloud-275704/cloud-portal-service:2.6
         # imagePullPolicy: IfNotPresent
         name: cloud-portal-service-sha256-1
-      imagePullSecrets:
-      - name: gcr-json-key
+      # imagePullSecrets:
+      # - name: gcr-json-key
         # resources: {}
         # terminationMessagePath: /dev/termination-log
         # terminationMessagePolicy: File
