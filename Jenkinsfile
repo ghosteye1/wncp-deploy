@@ -17,6 +17,19 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Creating name space') {
+            steps{
+                script {
+                    projectfolder = projectfolder + '/' + projectfolder+ '-namespace.json'
+                }
+
+                echo "${projectfolder} ${projectid} ${clusterid} ${location}"
+                sh "ls wncp/"
+                //step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+                step([$class: 'KubernetesEngineBuilder', projectId: projectid, clusterName: clusterid, location: location, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+
+            }
+        }
         stage('Applying all yaml to GKE') {
             steps{
                 script {
