@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - image: gcr.io/wn-cloud-275704/cloud-portal-frontend:2.7
-        imagePullPolicy: IfNotPresent
+        # imagePullPolicy: IfNotPresent
         name: cloud-portal-frontend-sha256-1
         # resources: {}
         # terminationMessagePath: /dev/termination-log
