@@ -24,7 +24,7 @@ spec:
         app: wncp-fronend
     spec:
       containers:
-      - image: gcr.io/wn-cloud-275704/cloud-portal-frontend@sha256:a43821b760dbb883e089f55c12b2a5553f4017bc812f733a1403452402026134
+      - image: gcr.io/wn-cloud-275704/cloud-portal-frontend:2.7
         imagePullPolicy: IfNotPresent
         name: cloud-portal-frontend-sha256-1
         # resources: {}
