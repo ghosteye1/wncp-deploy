@@ -1,4 +1,6 @@
 cplxStrng = "";
+nameSpaceFolder = "";
+deplymentsYamlFolder = ""
 
 pipeline {
     //agent any //Use this for default
@@ -20,11 +22,13 @@ pipeline {
         stage('Creating name space') {
             steps{
                 script {
-                    projectfolder = projectfolder + '/' + projectfolder+ '-namespace.json'
+                    nameSpaceFolder = projectfolder + '/' + projectfolder+ '-namespace.json'
                 }
 
                 echo "${projectfolder} ${projectid} ${clusterid} ${location}"
-                sh "ls wncp/"
+                echo "nameSpaceFolder: ${nameSpaceFolder}"
+                
+                sh "ls ${projectfolder}/"
                 //step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
                 step([$class: 'KubernetesEngineBuilder', projectId: projectid, clusterName: clusterid, location: location, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 
@@ -32,14 +36,17 @@ pipeline {
         }
         stage('Applying all yaml to GKE') {
             steps{
+                echo "${projectfolder} ${projectid} ${clusterid} ${location}"
+
                 script {
-                    projectfolder = projectfolder + '/'
+                    deplymentsYamlFolder = projectfolder + '/'
                 }
 
-                echo "${projectfolder} ${projectid} ${clusterid} ${location}"
-                sh "ls wncp/"
+                echo "deplymentsYamlFolder : ${deplymentsYamlFolder}"
+
+                sh "ls ${deplymentsYamlFolder}/"
                 //step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
-                step([$class: 'KubernetesEngineBuilder', projectId: projectid, clusterName: clusterid, location: location, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+                step([$class: 'KubernetesEngineBuilder', projectId: projectid, clusterName: clusterid, location: location, manifestPattern: deplymentsYamlFolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 
             }
         }
