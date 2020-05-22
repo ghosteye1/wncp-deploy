@@ -44,7 +44,7 @@ pipeline {
 
                 echo "deplymentsYamlFolder : ${deplymentsYamlFolder}"
 
-                sh "ls ${deplymentsYamlFolder}/"
+                sh "ls ${deplymentsYamlFolder}"
                 //step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: projectfolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
                 step([$class: 'KubernetesEngineBuilder', projectId: projectid, clusterName: clusterid, location: location, manifestPattern: deplymentsYamlFolder, credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
 
