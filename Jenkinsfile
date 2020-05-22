@@ -22,7 +22,7 @@ pipeline {
         stage('Creating name space') {
             steps{
                 script {
-                    nameSpaceFolder = projectfolder + '/' + projectfolder+ '-namespace.json'
+                    nameSpaceFolder = projectfolder + '/' + projectfolder+ '-namespace.yaml'
                 }
 
                 echo "${projectfolder} ${projectid} ${clusterid} ${location}"
