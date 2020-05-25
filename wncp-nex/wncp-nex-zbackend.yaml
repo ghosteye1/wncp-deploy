@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: cloud-portal-service
-        image: dockerhub.globalwavenet.com/wcp/cloud-portal-service:1.1 #wcp/cloud-portal-service:1.1
+        image: dockerhub.globalwavenet.com/wcp/cloud-portal-frontend:1.0 #wcp/cloud-portal-service:1.1
         imagePullPolicy: Always
       imagePullSecrets:
       - name: nexusjen
