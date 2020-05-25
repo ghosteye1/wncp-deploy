@@ -6,7 +6,7 @@ metadata:
   name: wncp-backend-nex
   namespace: wncp-nex
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: wncp-backend-nex
