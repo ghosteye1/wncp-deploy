@@ -1,32 +1,4 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Namespace
 metadata:
-  labels:
-    app: wncp-backend-nex
-  name: wncp-backend-nex
-  namespace: wncp-nex
-spec:
-  minReadySeconds: 120
-  progressDeadlineSeconds: 600
-  replicas: 3
-  revisionHistoryLimit: 10
-  selector:
-    matchLabels:
-      app: wncp-backend-nex
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        app: wncp-backend-nex
-    spec:
-      containers:
-      - name: cloud-portal-service
-        image: wcp/cloud-portal-service:1.1
-        imagePullPolicy: Always
-      imagePullSecrets:
-      - name: nexusjen
+  name: wncp-nex
