@@ -4,7 +4,7 @@ metadata:
   labels:
     app: wncp-backend-nex
   name: wncp-backend-nex
-  namespace: wncp-test-11
+  namespace: wncp-nex
 spec:
   minReadySeconds: 120
   progressDeadlineSeconds: 600
