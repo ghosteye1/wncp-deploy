@@ -4,7 +4,7 @@ metadata:
   labels:
     app: wncp-backend-nex
   name: wncp-backend-nex
-  namespace: wncp-nex
+  # namespace: wncp-nex
 spec:
   replicas: 1
   selector:
